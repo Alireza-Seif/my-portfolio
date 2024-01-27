@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/widgets/main_desktop.dart';
 
 import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
@@ -38,6 +39,8 @@ class _HomePageState extends State<HomePage> {
                     scaffoldKey.currentState?.openEndDrawer();
                   },
                 ),
+
+              MainDesktop(),
 
               // SKILLS
               Container(
