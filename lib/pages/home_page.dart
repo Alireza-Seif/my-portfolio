@@ -20,18 +20,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, Constraints) {
+    return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
           key: scaffoldKey,
           backgroundColor: CustomColor.scaffoldBg,
-          endDrawer: Constraints.maxWidth >= kMinDesktopWidth
+          endDrawer: constraints.maxWidth >= kMinDesktopWidth
               ? null
               : const DrawerMobile(),
           body: ListView(
             scrollDirection: Axis.vertical,
             children: [
               // MAIn
-              if (Constraints.maxWidth >= kMinDesktopWidth)
+              if (constraints.maxWidth >= kMinDesktopWidth)
                 const HeaderDesktop()
               else
                 HeaderMobile(
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
 
-              if (Constraints.maxWidth >= kMinDesktopWidth)
+              if (constraints.maxWidth >= kMinDesktopWidth)
                 const MainDesktop()
               else
                 const MainMobile(),
