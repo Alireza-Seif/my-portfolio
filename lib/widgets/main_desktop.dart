@@ -7,12 +7,12 @@ class MainDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final ScreenWidth = screenSize.width;
-    final ScreenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20.0),
-      height: ScreenHeight / 1.2,
+      height: screenHeight / 1.2,
       constraints: const BoxConstraints(
         minHeight: 350.0,
       ),
@@ -45,7 +45,7 @@ class MainDesktop extends StatelessWidget {
           ),
           Image.asset(
             "assets/images/two.png",
-            width: ScreenWidth / 2,
+            width: screenWidth / 2,
           ),
         ],
       ),
