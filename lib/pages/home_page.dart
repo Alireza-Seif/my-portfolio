@@ -6,6 +6,7 @@ import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
+import '../widgets/main_mobile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,7 +41,10 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
 
-              MainDesktop(),
+              if (Constraints.maxWidth >= kMinDesktopWidth)
+                const MainDesktop()
+              else
+                const MainMobile(),
 
               // SKILLS
               Container(
