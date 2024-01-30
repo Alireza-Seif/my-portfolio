@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/widgets/main_desktop.dart';
+import 'package:my_portfolio/widgets/skills_desktop.dart';
 
 import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
@@ -48,9 +49,29 @@ class _HomePageState extends State<HomePage> {
 
               // SKILLS
               Container(
-                height: 500,
                 width: double.maxFinite,
-                color: Colors.blueGrey,
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                color: CustomColor.bgLight1,
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // title
+                    Text(
+                      'What I can do',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: CustomColor.whitePrimary,
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 50,
+                    ),
+                    // platforms and skills
+                    SkillsDesktop(),
+                  ],
+                ),
               ),
               // Projects
               const SizedBox(
