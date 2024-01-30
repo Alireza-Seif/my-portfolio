@@ -44,8 +44,8 @@ class MainDesktop extends StatelessWidget {
             ],
           ),
           Image.asset(
-            "assets/images/two.webp",
-            width: screenWidth / 2,
+            "assets/images/2.png",
+            width: screenWidth / 2.9,
           ),
         ],
       ),

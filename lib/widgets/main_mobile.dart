@@ -16,9 +16,6 @@ class MainMobile extends StatelessWidget {
         vertical: 30.0,
       ),
       height: screenHeight,
-      constraints: const BoxConstraints(
-        maxHeight: 560.0,
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +30,7 @@ class MainMobile extends StatelessWidget {
             },
             blendMode: BlendMode.srcATop,
             child: Image.asset(
-              'assets/images/two.webp',
+              'assets/images/2.png',
               width: screenWidth,
             ),
           ),
@@ -56,7 +53,7 @@ class MainMobile extends StatelessWidget {
             height: 15,
           ),
           SizedBox(
-            width: 190,
+            width: 200,
             child: ElevatedButton(
               onPressed: () {},
               child: const Text('Get in touch'),
