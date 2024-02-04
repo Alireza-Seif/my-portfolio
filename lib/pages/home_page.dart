@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/utils/project_utils.dart';
+import 'package:my_portfolio/widgets/project_cartd.dart';
 
 import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
@@ -92,6 +94,7 @@ class _HomePageState extends State<HomePage> {
                     ),
 
                     // Work projects title
+                    ProjectCardWidget(project: workProjectUtils.first),
                   ],
                 ),
               ),
