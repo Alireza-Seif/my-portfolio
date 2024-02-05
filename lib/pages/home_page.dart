@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/utils/project_utils.dart';
-import 'package:my_portfolio/widgets/project_card.dart';
 
 import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
+import '../widgets/header_desktop.dart';
+import '../widgets/header_mobile.dart';
+import '../widgets/main_desktop.dart';
+import '../widgets/main_mobile.dart';
+import '../widgets/projects_section.dart';
+import '../widgets/skills_desktop.dart';
+import '../widgets/skills_mobile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,61 +36,32 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.vertical,
             children: [
               // MAIn
-              // if (constraints.maxWidth >= kMinDesktopWidth)
-              //   const HeaderDesktop()
-              // else
-              //   HeaderMobile(
-              //     onLogoTap: () {},
-              //     onMenuTap: () {
-              //       scaffoldKey.currentState?.openEndDrawer();
-              //     },
-              //   ),
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const HeaderDesktop()
+              else
+                HeaderMobile(
+                  onLogoTap: () {},
+                  onMenuTap: () {
+                    scaffoldKey.currentState?.openEndDrawer();
+                  },
+                ),
 
-              // if (constraints.maxWidth >= kMinDesktopWidth)
-              //   const MainDesktop()
-              // else
-              //   const MainMobile(),
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const MainDesktop()
+              else
+                const MainMobile(),
 
-              // // SKILLS
-              // Container(
-              //   width: double.maxFinite,
-              //   padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-              //   color: CustomColor.bgLight1,
-              //   child: Column(
-              //     mainAxisSize: MainAxisSize.min,
-              //     children: [
-              //       // title
-              //       const Text(
-              //         'What I can do',
-              //         style: TextStyle(
-              //           fontSize: 24,
-              //           fontWeight: FontWeight.bold,
-              //           color: CustomColor.whitePrimary,
-              //         ),
-              //       ),
-
-              //       const SizedBox(
-              //         height: 50,
-              //       ),
-
-              //       // platforms and skills
-              //       if (constraints.maxWidth >= kMedDesktopWidth)
-              //         const SkillsDesktop()
-              //       else
-              //         const SkillsMobile(),
-              //     ],
-              //   ),
-              // ),
-
-              // Projects
+              // SKILLS
               Container(
-                width: screenWidth,
-                padding:  const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                child:  Column(
+                width: double.maxFinite,
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                color: CustomColor.bgLight1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Work projects title
+                    // title
                     const Text(
-                      'Work Projects',
+                      'What I can do',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -93,11 +69,25 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
 
-                    // Work projects title
-                    ProjectCardWidget(project: workProjectUtils.first),
+                    const SizedBox(
+                      height: 50,
+                    ),
+
+                    // platforms and skills
+                    if (constraints.maxWidth >= kMedDesktopWidth)
+                      const SkillsDesktop()
+                    else
+                      const SkillsMobile(),
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 30,
+              ),
+
+              // Projects
+              const ProjectSectio(),
+
               // CONACT
               Container(
                 height: 500,
