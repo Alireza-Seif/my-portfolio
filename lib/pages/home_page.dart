@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/utils/project_utils.dart';
-import 'package:my_portfolio/widgets/project_cartd.dart';
+import 'package:my_portfolio/widgets/project_card.dart';
 
 import '../constants/size.dart';
 import '../widgets/drawer_mobile.dart';
@@ -80,11 +80,11 @@ class _HomePageState extends State<HomePage> {
               // Projects
               Container(
                 width: screenWidth,
-                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                child: const Column(
+                padding:  const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                child:  Column(
                   children: [
                     // Work projects title
-                    Text(
+                    const Text(
                       'Work Projects',
                       style: TextStyle(
                         fontSize: 24,
