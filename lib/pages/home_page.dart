@@ -4,6 +4,7 @@ import 'package:my_portfolio/constants/colors.dart';
 import '../constants/size.dart';
 import '../widgets/contact_section.dart';
 import '../widgets/drawer_mobile.dart';
+import '../widgets/footter.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
 import '../widgets/main_desktop.dart';
@@ -97,7 +98,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // FOOTER
-              
+              const Footer(),
             ],
           ));
     });
