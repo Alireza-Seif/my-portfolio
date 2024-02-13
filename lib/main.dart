@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       title: 'Alireza Seif',
-      home: const HomePage(),
+      home:  HomePage(),
     );
   }
 }

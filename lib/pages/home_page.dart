@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
 
 import '../constants/size.dart';
+import '../widgets/contact_section.dart';
 import '../widgets/drawer_mobile.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           body: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              // MAIn
+              // // MAIn
               if (constraints.maxWidth >= kMinDesktopWidth)
                 const HeaderDesktop()
               else
@@ -89,16 +90,14 @@ class _HomePageState extends State<HomePage> {
               const ProjectSectio(),
 
               // CONACT
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
-              ),
-              // FOOTER
+              const ContactSection(),
+
               const SizedBox(
-                height: 500,
-                width: double.maxFinite,
-              )
+                height: 30,
+              ),
+
+              // FOOTER
+              
             ],
           ));
     });
