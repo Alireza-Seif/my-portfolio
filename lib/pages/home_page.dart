@@ -22,24 +22,41 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final scrollController = ScrollController();
+  final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
+
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: CustomColor.scaffoldBg,
-          endDrawer: constraints.maxWidth >= kMinDesktopWidth
-              ? null
-              : const DrawerMobile(),
-          body: ListView(
-            scrollDirection: Axis.vertical,
+        key: scaffoldKey,
+        backgroundColor: CustomColor.scaffoldBg,
+        endDrawer: constraints.maxWidth >= kMinDesktopWidth
+            ? null
+            : DrawerMobile(onNavItemTap: (int navIndex) {
+                scaffoldKey.currentState?.closeEndDrawer();
+                scrollToSection(navIndex);
+              }),
+        body: SingleChildScrollView(
+          controller: scrollController,
+          scrollDirection: Axis.vertical,
+          child: Column(
             children: [
-              // // MAIn
+              SizedBox(
+                key: navbarKeys.first,
+              ),
+              // MAIn
               if (constraints.maxWidth >= kMinDesktopWidth)
-                const HeaderDesktop()
+                HeaderDesktop(
+                  onNavMenuTap: (int navIndex) {
+                    // call function
+                    scrollToSection(navIndex);
+                  },
+                )
               else
                 HeaderMobile(
                   onLogoTap: () {},
@@ -55,6 +72,7 @@ class _HomePageState extends State<HomePage> {
 
               // SKILLS
               Container(
+                key: navbarKeys[1],
                 width: double.maxFinite,
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 color: CustomColor.bgLight1,
@@ -88,10 +106,14 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // Projects
-              const ProjectSectio(),
+              ProjectSectio(
+                key: navbarKeys[2],
+              ),
 
               // CONACT
-              const ContactSection(),
+              ContactSection(
+                key: navbarKeys[3],
+              ),
 
               const SizedBox(
                 height: 30,
@@ -100,7 +122,18 @@ class _HomePageState extends State<HomePage> {
               // FOOTER
               const Footer(),
             ],
-          ));
+          ),
+        ),
+      );
     });
+  }
+
+  void scrollToSection(int navIndex) {
+    final Key = navbarKeys[navIndex];
+    Scrollable.ensureVisible(
+      Key.currentContext!,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
   }
 }
